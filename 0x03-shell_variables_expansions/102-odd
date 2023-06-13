@@ -1,0 +1,2 @@
+#!/bin/bash
+perl -lne 'prin if $ %2==1
