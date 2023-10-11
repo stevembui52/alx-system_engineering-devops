@@ -12,3 +12,12 @@ _This project will be manually reviewed._
 * As each task is completed, the name of that task will turn green
 * Create a screenshot, showing that you completed the required levels
 * Push this screenshot with the right name to GitHub, in either the PNG or JPEG format
+##steps for uploading
+<h4> step 1</h4>
+<p> connect to sftp server using the credentials provided by ALX at the sandbox menu </p>
+<h4> step 2</h4>
+<p> using the cd command change to the remote directory <p>
+<h4> step 3 </h4>
+<p> using the lcd command move to the local directory that contains the images </p>
+<h4> step 4</h4>
+<p> using the put command upload the images recursively using the -R flag follower by wildcard * and .jpg or .png extension </p>
