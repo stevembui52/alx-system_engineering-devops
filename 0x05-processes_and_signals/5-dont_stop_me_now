@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Kills the 4-to_infinity_and_beyond process
+
+process_name="4-to_infinity_and_beyond"
+process_pid=$(pgrep -o "$process_name")
+
+if [ -n "$process_pid" ]
+then 
+	kill 15 "$process_pid"
+fi
