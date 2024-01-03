@@ -1,18 +1,17 @@
 #!/usr/bin/env bash
-# Install nginx and start it
-apt-get -y install nginx
+#  A Script that configures a new Ubuntu machine to Perform a 301-redirection
 
-# Firewall setting: Allow Nginx to serve on HTTP
-ufw allow 'Nginx HTTP'
+# Upadating Packages before Installations
+sudo apt-get update
+sudo apt-get install -y nginx
 
-# Override the default index file served as home page
-echo "Alx  School" >> /var/www/html/index.html
+sudo ufw allow 'Nginx HTTP'
 
-#Give the user  ownership to website files
-sudo chown -R $USER:$USER /var/www/html
-sudo chmod -R 755 /var/www
+# Creating an index.html page
+echo "Hello World!" | sudo tee /var/www/html/index.html
 
-# Redirect to /redirect_me to a youtube video
-sed -i 's/server_name _;\nrewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+# Performing a 301 Redirection
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/besthor permanent;"
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
 
-service nginx start
+# Restarting Nginx service
